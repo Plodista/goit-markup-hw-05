@@ -11,15 +11,8 @@
   --color-svg: #AFB1B8;
  }
 
- /* text-align: center; -выравнивает текстовые элементы по центру */
 
- /* h1.
-  h2.
-  h3 {
-   margin-top: 0; сбрасиваем нужные отступы всем h
- } */
- /* !ЗАДАЕМ ВСЕМ элементам box-sizing: border-box, кому надо унаследуйте его! */
- html {
+html {
   box-sizing: border-box;
 }
 
@@ -27,16 +20,16 @@
   box-sizing: border-box;
 }
 
- body {
+body {
   color: var(--text-color-black);
   font-family: Roboto, sans-serif;
   /* width: 1600px; */
   margin: 0;
 }
 
- button {
+button {
   font-family: Roboto, sans-serif;
- }
+}
 .container {
   width: 1200px;
   padding-left: 15px;
@@ -48,14 +41,12 @@
 ul {
     list-style: none;
   }
-  /* убралив ссылках подчеркивание.лучше убирать точечнов нужном месте.
-   не задават всем МОЖНО ПЕРЕНЕСТИ В МОДЕРН -НОРМАЛАЙЗ */
+ 
 a {
   text-decoration: none;
 }
 
-/************** id-идендтификатор hedera-#headre
-justify-content: space-between; -распределение элементов по горизонтали*****/
+/************** id-идендтификатор hedera-#headre*****/
 #header {
   display: flex;
   align-items: center;
@@ -95,8 +86,8 @@ justify-content: space-between; -распределение элементов �
 }
 .site-nav {
   display: flex;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 0;
+  margin-bottom: 0;
   padding-left: 0;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -117,6 +108,7 @@ justify-content: space-between; -распределение элементов �
   display: flex;
   align-items: center;
 }
+
 .icons-mail {
   display: flex;
   width: 16px;
@@ -170,6 +162,7 @@ justify-content: space-between; -распределение элементов �
   font-style: normal;
   font-weight: normal;
 }
+
 .info-studio a {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
@@ -188,6 +181,8 @@ justify-content: space-between; -распределение элементов �
 .site-nav a:focus {
   color: #2196F3;
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
 } 
   
 /* подсвечивается активная  СТАНИЦА сейчас, где находимся */
@@ -197,7 +192,25 @@ justify-content: space-between; -распределение элементов �
  font-size: 14px;
  line-height: 1.143;
  letter-spacing: 0.02em;
+ padding-bottom: 34px;
 }
+
+.site-nav .link.current{
+  position: relative;
+}
+
+.site-nav .link.current::after  {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--bt-second);
+}
+
 
 .auth-nav a{
   color: var(--text-color-grey);
@@ -205,17 +218,21 @@ justify-content: space-between; -распределение элементов �
 .auth-nav a:hover,
 .auth-nav a:focus {
   color: #2196F3;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
 }
 
 /****************** main portfolio********/
 .portfolio-filter button:hover,
 .portfolio-filter button:focus {
-  color: #FFFFFF;
-  background-color: var(--bt-second);
-  cursor: pointer;
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+ color: #FFFFFF;
+ background-color: var(--bt-second);
+ cursor: pointer;
+ box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
  0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
  
+ transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ transition-property: background-color;
 }
 
 .portfolio-filter {
@@ -232,63 +249,45 @@ justify-content: space-between; -распределение элементов �
   margin-bottom: 50px;
 }
 
-.produt-thumb {
+.card-content {
   position: relative;
+  overflow: hidden;
 }
 
 
-/* .produt-thumb::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: rgba(33, 150, 243, 0.9);
-  opacity: 0;
-  transform: translateY(100%);
-  transition: 150ms ease;
-} */
-
-  .portfolio-card a:hover .card-text,
-  .portfolio-card a:focus .card-text{
+.portfolio-card a:hover .card-text,
+.portfolio-card a:focus .card-text{
   opacity: 1;
   transform: translateY(0);
-  }
+}
 
-  /* .tehno-cards a:hover  {
-    opacity: 1;
-    transform: translateY(-100%);
-  } */
-
-  .card-text {
-    position: absolute;
-    font-size: 18px;
-    line-height: 1.56;
-    letter-spacing: 0.03em;
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    padding: 63px 24px;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    color: var(--text-color-white);
-    transform: translateY(100%);
-    transition: 250ms ease;
-    background-color: rgba(33, 150, 243, 0.9);
-  }
-
+.card-text {
+  position: absolute;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  top: 0;
+  left: 0;
+  color: var(--text-color-white);
+  transform: translateY(100%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(33, 150, 243, 0.9);
+}
 
 .tehno-cards:hover,
 .tehno-cards:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px
    rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
- 
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
 }
 
 .portfolio {
-  /* background: lightpink; */
  margin-top: 94px;
  margin-bottom: 94px;
 }
@@ -313,7 +312,6 @@ justify-content: space-between; -распределение элементов �
   line-height: 2;
   letter-spacing: 0.06em;
   font-weight: bold; 
-  /* background-color: mediumblue; */ 
   width: 322px;
   height: 36px;  
   margin-top: 0;
@@ -323,17 +321,15 @@ justify-content: space-between; -распределение элементов �
 }
 
 .portfolio-card li {
-  /* background-color: yellow; */
   box-sizing: border-box;
   width: 370px;
   height: 404px;
   margin: 15px;
 }
 
-  /**** у последних 3х элементов li отступ margin-bottom: 0 px  *** */
-  .portfolio-card li:nth-last-child(-n + 3) {
-    margin-bottom: 0;
-  }
+.portfolio-card li:nth-last-child(-n + 3) {
+  margin-bottom: 0;
+}
 
 
 .portfolio-card {
@@ -343,7 +339,6 @@ justify-content: space-between; -распределение элементов �
   классу добавили margin: -15px;   и убрали  ненужные отступы */
   margin: -15px; 
   padding-left: 0;
-  
 } 
 
 .cards {
@@ -359,7 +354,7 @@ justify-content: space-between; -распределение элементов �
   /* добавили отступ между кнопками 8пх, всем соседям от1го элемента
    при добавление еще одной кнопки, отступы сохраняются автоматически
    можно через not:last-chaild  */
-  }
+}
   
   /* ******кнопки фильтрации с портфолио ******/
 .vse {
@@ -379,8 +374,8 @@ justify-content: space-between; -распределение элементов �
   line-height: 1.63;
   border-radius: 4px;
   border-color: transparent;
-  
  }
+
 .pri {
   width: 145px;
   height: 38px;
@@ -390,6 +385,7 @@ justify-content: space-between; -распределение элементов �
   border-radius: 4px;
   border-color: transparent;
 }
+
 .diz {
   width: 103px;
   height: 38px;
@@ -399,6 +395,7 @@ justify-content: space-between; -распределение элементов �
   border-radius: 4px;
   border-color: transparent;
  }
+
  .mark {
    width: 130px;
    height: 38px;
@@ -505,9 +502,9 @@ h1 {
   height: 251px;
   }
   
-  .list-ett::before {
-    display: block;
-    content: '';
+.list-ett::before {
+  display: block;
+  content: '';
   height: 120px;
   margin-bottom: 30px;
   background-color: #F5F4FA;
@@ -568,35 +565,36 @@ h1 {
    letter-spacing: 0.03em;
   }
 
- .box-one img{
-   width: 370px;
-  }
+.box-one img{
+  width: 370px;
+}
 
   
-  .box-one {
-    position: relative;
-    width: 370px;
-    height: 294px;
-  }
-  .text-one {
-    position: absolute;
-    display: flex;
-    bottom: 0;
-    left: 0;
-    margin-top:  0;
-    margin-bottom: 0;
-    background: rgba(47, 48, 58, 0.8);
-    width: 100%;
-    height: 70px;
-    align-items: center;
-    justify-content: center;
-    padding-top: 27px;
-    padding-bottom: 27px;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.03em;
-    color: var(--text-color-white);
+.box-one {
+  position: relative;
+  width: 370px;
+  height: 294px;
+}
+
+.text-one {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(47, 48, 58, 0.8);
+  width: 100%;
+  height: 70px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  margin-top:  0;
+  margin-bottom: 0;
+  bottom: 0;
+  left: 0;
+  color: var(--text-color-white);
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
   }
 
   /************Наша команда блок **************/
@@ -632,10 +630,10 @@ h1 {
 
 .soc-icon {
   display: flex; 
- align-items: center; 
- justify-content: center; 
- width: 44px;
- height: 44px;
+  align-items: center; 
+  justify-content: center; 
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   color: #AFB1B8;;
   background-color: var(--text-color-white);
@@ -645,6 +643,8 @@ h1 {
   background-color: #2196F3 ;
   color: var(--text-color-white);
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
 }
 
 
@@ -668,13 +668,13 @@ h1 {
   justify-content: space-between;
  }
  
- .designer,
-  .developer, 
-  .marketing,
-  .ui {
-    width: 270px;
-    height: 260px;
-  }
+.designer,
+.developer, 
+.marketing,
+.ui {
+  width: 270px;
+   height: 260px;
+}
   
 .team-designer{
   background-color: var(--text-color-white);
@@ -692,8 +692,7 @@ h1 {
   height: 428px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  
+  border-bottom-left-radius: 4px; 
 }
 
 
@@ -715,19 +714,19 @@ h1 {
   border-bottom-left-radius: 4px;
 }
 
- .designer,
- .developer,
- .marketing,
- .ui {
+.designer,
+.developer,
+.marketing,
+.ui {
    display: block;
-  }
+}
 
-  .team-all {
+.team-all {
  text-align: center;
 }
 
- .team-all p {
-   display: block;
+.team-all p {
+  display: block;
   text-align: center;
   color: #757575;
   line-height: 1.88;
@@ -769,6 +768,7 @@ h1 {
   margin-bottom: 0;
   padding-bottom: 94px;
 }
+
 .partner h2 {
   font-size: 36px;
   line-height: 1.17;
@@ -795,8 +795,10 @@ h1 {
 }
 
 .partner-one:hover {
-  border-color: #2196F3;
+ border-color: #2196F3;
  fill:  #2196F3;
+ transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
 }
 
 
@@ -843,7 +845,8 @@ h1 {
 }
 
 .icons-foot:hover  {
-  fill: var(--text-color-white);;
+  fill: var(--text-color-white);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .twit-foot {
@@ -858,6 +861,7 @@ h1 {
 .twit-foot:hover {
   background-color: #2196F3;
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .footer-two {
@@ -894,3 +898,48 @@ h1 {
   padding-bottom: 20px;
 }
 
+/* ********МОДАЛЬНОЕ ОКНО************** */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none; 
+  /* пропускает сквозь себя события, когда модалка всё перекрывает */
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  width: 528px;
+  height: 581px;
+  background-color: var(--text-color-white);
+   
+  transition-property: background-color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ }
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+ /* ******запрещает выделять текст**** */
+.modal p {
+   margin-top: 40px;
+   user-select: none;
+}
