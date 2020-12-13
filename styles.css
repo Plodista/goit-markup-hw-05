@@ -83,6 +83,7 @@ a {
   
 .site-nav a{
   color: var(--text-color-black);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav {
   display: flex;
@@ -181,8 +182,6 @@ a {
 .site-nav a:focus {
   color: #2196F3;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: background-color;
 } 
   
 /* подсвечивается активная  СТАНИЦА сейчас, где находимся */
@@ -214,12 +213,12 @@ a {
 
 .auth-nav a{
   color: var(--text-color-grey);
+  transition: 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .auth-nav a:hover,
 .auth-nav a:focus {
   color: #2196F3;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: background-color;
 }
 
 /****************** main portfolio********/
@@ -247,6 +246,7 @@ a {
   margin-bottom: 0;
   padding-left: 0; 
   margin-bottom: 50px;
+  
 }
 
 .card-content {
@@ -283,8 +283,7 @@ a {
 .tehno-cards:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px
    rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: background-color;
+
 }
 
 .portfolio {
@@ -396,9 +395,9 @@ a {
   border-color: transparent;
  }
 
- .mark {
-   width: 130px;
-   height: 38px;
+.mark {
+  width: 130px;
+  height: 38px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.63;
@@ -422,8 +421,6 @@ a {
   height: 600px;
   margin-right: auto;
   margin-left: auto;
-  /* background-image: url(./images/Imgheader.jpg); */
-  /* при изменении рр раб.страницы,картинка будет по центру */
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
@@ -597,13 +594,14 @@ h1 {
   letter-spacing: 0.03em;
   }
 
-  /************Наша команда блок **************/
+  
+  
+  /* !!!!!!!!!!!!!!!!!!!!!!соцсети!!!!!!!!!!!!!!!!!!!! */
+
 .team  {
   background-color: var(--block-color);
 }
 
-
-/* !!!!!!!!!!!!!!!!!!!!!!соцсети!!!!!!!!!!!!!!!!!!!! */
 .block-seti {
   display: inline-flex;
   width: 270px;
@@ -637,14 +635,15 @@ h1 {
   border-radius: 50%;
   color: #AFB1B8;;
   background-color: var(--text-color-white);
+  transition-property: background-color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .soc-icon:hover,
 .soc-icon:focus {
   background-color: #2196F3 ;
   color: var(--text-color-white);
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: background-color;
 }
 
 
@@ -705,9 +704,9 @@ h1 {
   border-bottom-left-radius: 4px;
 }
 
- .team-ui {
-   background-color: var(--text-color-white);
-   width: 270px;
+.team-ui {
+  background-color: var(--text-color-white);
+  width: 270px;
   height: 428px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-bottom-right-radius: 4px;
@@ -792,13 +791,12 @@ h1 {
   height: 90px;
   border: 1px solid #AFB1B8;
   border-radius: 4%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partner-one:hover {
  border-color: #2196F3;
  fill:  #2196F3;
- transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
- 
 }
 
 
@@ -842,11 +840,12 @@ h1 {
   height: 20px;
   fill: #FFFFFF;
   align-items: center;
+  transition-property: background-color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icons-foot:hover  {
   fill: var(--text-color-white);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .twit-foot {
@@ -857,11 +856,12 @@ h1 {
   height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
+  transition-property: background-color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .twit-foot:hover {
   background-color: #2196F3;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .footer-two {
@@ -943,3 +943,5 @@ h1 {
    margin-top: 40px;
    user-select: none;
 }
+
+
